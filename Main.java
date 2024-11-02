@@ -1,19 +1,25 @@
-// Main.java
 public class Main {
     public static void main(String[] args) {
-        Mahasiswa mahasiswa1 = new Mahasiswa("Ali", 20);
-        Dosen dosen1 = new Dosen("Dr. Budi", 45);
-        SistemMataKuliah mataKuliah1 = new SistemMataKuliah("Pemrograman Berorientasi Objek");
-        Kelas kelas1 = new Kelas("Jaringan Komputer", "JK101");
 
-        // Menampilkan informasi
-        System.out.println(mahasiswa1.infoPerson());
-        System.out.println(dosen1.infoPerson());
-        System.out.println(mataKuliah1.infoMataKuliah());
-        System.out.println(kelas1.infoKelas());
+        Restoran restoran = new Restoran("Restoran Lezat");
 
-        // Mengubah nama mahasiswa
-        mahasiswa1.setNama("Siti");
-        System.out.println("Nama Mahasiswa setelah diubah: " + mahasiswa1.getNama());
+        Menu menu1 = new Menu("Nasi Goreng", 20000);
+        Menu menu2 = new Menu("Es Teh", 5000);
+        restoran.tambahMenu(menu1);
+        restoran.tambahMenu(menu2);
+
+        Pelanggan pelanggan1 = new Pelanggan("Budi", "08123456789");
+        Pelanggan pelanggan2 = new Pelanggan("Ani", "08987654321");
+        restoran.tambahPelanggan(pelanggan1);
+        restoran.tambahPelanggan(pelanggan2);
+
+        DineIn pesanan1 = new DineIn(pelanggan1, menu1, 2, 5);
+        restoran.catatPesanan(pesanan1);
+
+        TakeAway pesanan2 = new TakeAway(pelanggan2, menu2, 3, "18:30");
+        restoran.catatPesanan(pesanan2);
+
+        System.out.println(pesanan1.detailPesanan());
+        System.out.println(pesanan2.detailPesanan());
     }
 }
